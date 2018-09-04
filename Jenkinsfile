@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent { docker { image 'node:7-alpine' } }}
     stages {
         stage('Test') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                sh 'echo "Fail!"; exit 0'
             }
         }
 	stage('Next_Step') {
