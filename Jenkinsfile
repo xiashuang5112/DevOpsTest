@@ -1,9 +1,15 @@
 pipeline {
-    agent { docker { image 'node:7-alpine' } }
+    agent any
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    } 
+
     stages {
         stage('Test') {
             steps {
-                sh 'echo "Fail!"; exit 0'
+                sh 'print env; echo "Fail!"; exit 0'
             }
         }
 	stage('Next_Step') {
