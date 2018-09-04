@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'print env; echo "Fail!"; exit 0'
+                sh 'printenv; echo "Fail!"; exit 0'
             }
         }
 	stage('Next_Step') {
