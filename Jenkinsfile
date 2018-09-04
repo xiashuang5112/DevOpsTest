@@ -6,6 +6,11 @@ pipeline {
                 sh 'echo "Fail!"; exit 1'
             }
         }
+	stage('Next_Step') {
+		steps {
+			sh 'echo "I Dont Know; exit 1'
+		}
+	}
     }
     post {
         always {
