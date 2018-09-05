@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-      steps {
-        sh 'printenv; echo "Fail!"; exit 0'
+      parallel {
+        stage('Test') {
+          steps {
+            sh 'printenv; echo "Fail!"; exit 0'
+          }
+        }
+        stage('Other') {
+          steps {
+            sh 'echo \'xxxx\''
+          }
+        }
       }
     }
   }
